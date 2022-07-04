@@ -1,0 +1,43 @@
+{% extends 'index.html' %}
+
+{% block titulo %}
+   Listado de Usuarios 
+{% endblock titulo %}
+
+{% block body %}
+  
+  {% if usuarios %}
+     <table class="table">
+         <thead>
+             <tr>
+                 <th>#</th>
+                 <th>Cedula</th>
+                 <th>Nombres</th>
+                 <th>Apellidos</th>
+                 <th>Descripción</th>
+                 <th>Opciones</th>
+             </tr>
+         </thead>
+         <tbody>
+            {% for usuario in usuarios %}
+                <tr>
+                    <td>{{ usuario.id}}</td>
+                    <td>{{ usuario.cedula}}</td>
+                    <td>{{ usuario.nombres}}</td>
+                    <td>{{ usuario.apellidos}}</td>
+                    <td>{{ usuario.descripcion}}</td>
+                    <td>
+                      <a href="{% url 'editar_usuario' usuario.id %}">Editar</a>
+                      <a href="{% url 'eliminar_usuario' usuario.id %}">Eliminar</a>
+                    </td>
+                </tr>
+            {% endfor %}
+         </tbody>
+     </table>
+     
+  {% else %}
+     <h1>No existen usuarios</h1>
+  {% endif %}
+
+
+{% endblock body %}

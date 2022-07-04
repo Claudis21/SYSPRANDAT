@@ -1,0 +1,50 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block titulo %}
+   Listado de Documentos
+{% endblock titulo %}
+{% block extra_css%}
+  <link rel="stylesheet" href="{% static 'css/lib/datatable/dataTables.bootstrap.min.css' %}">
+{% endblock extra_css%}
+{% block body %}
+<div>
+  <button class="btn btn-primary" type="button" onclick="abrir_modal_creacion('{% url 'crear_documento'%}')">Crear Producto</button>
+</div>
+  
+    <div class = "card">
+       <div class = "card-header">
+          <strong>Listado de Documentos</strong>
+       </div>
+    </div>
+        <table id="tabla_documentos" class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Título</th>
+                    <th>Autor</th>
+                    <th>Fecha de publicación</th>
+                    <th>Palabras clave</th>
+                    <th>Archivo</th>
+                    <th>Tipo de Documento</th>
+                    <th>Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+     
+
+
+<div class="modal fade" id="creacion" role="dialog">
+</div>
+
+<div class="modal fade" id="edicion" role="dialog">
+</div>
+
+{% endblock body %}
+
+{% block extrajs %}
+   <script src="{% static 'js/lib/data-table/dataTables.min.js' %}"></script>
+   <script src="{% static 'js/lib/data-table/dataTables.bootstrap.min.js' %}"></script>
+   <script src="{% static 'js/libro/libro.js' %}"></script>
+{% endblock extrajs %} 

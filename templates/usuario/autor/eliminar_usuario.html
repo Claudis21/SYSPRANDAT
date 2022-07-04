@@ -1,0 +1,14 @@
+{% extends 'index.html' %}
+
+{% block titulo %}
+  Eliminaión de Usuarios
+{% endblock titulo %}
+{% block body %}
+<form method="POST">
+    {%csrf_token %}
+    <h2>¿Desea eliminar el registro {{usuario.nombres}} ?</h2>
+      <button type = "submit">Eliminar</button>
+      <a href=" {% url 'listarusuario' %} ">Cancelar</a>
+</form>
+ 
+{% endblock body %}

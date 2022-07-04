@@ -1,0 +1,42 @@
+{% extends 'index.html' %}
+{% block titulo %}
+  Registro de Usuarios
+{% endblock titulo %}
+{% block body %}
+<form method="POST">
+    {%csrf_token %}
+    {% if error  %}
+      <h2>{{  error }}</h2>
+    {% else %}
+
+  <div class="card-header">
+      <strong>Formulario Registro de Usuarios</strong> 
+  </div>
+  <div class="card-body card block">
+      <form action="#" medthod="post" enctype="multipart/form-data" class="form-horizontal">
+        <div class="row form-group">
+            <div class="col col-md-3">{{form.cedula.label}}</div>
+            <div class="col-12 col-md-9">{{form.cedula}}</div>
+        </div>
+        <div class="row form-group">
+            <div class="col col-md-3">{{form.nombres.label}}</div>
+            <div class="col-12 col-md-9">{{form.nombres}}</div>
+        </div>
+        <div class="row form-group">
+            <div class="col col-md-3">{{form.apellidos.label}}</div>
+            <div class="col-12 col-md-9">{{form.apellidos}}</div>
+        </div>
+        <div class="row form-group">
+            <div class="col col-md-3">{{form.descripcion.label}}</div>
+            <div class="col-12 col-md-9">{{form.descripcion}}</div>
+        </div>
+        <div class= "text-center">
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <button type="reset" class="btn btn-danger">Cancelar</button>
+        </div>
+      </form>
+  </div>
+    {% endif %}
+</form>
+ 
+{% endblock body %}

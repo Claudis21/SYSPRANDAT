@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Py</title>
+    
+    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css"/>
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+
+    <py-env>
+        -python-rake
+        -PyPDF2
+        -textract
+    </py-env>
+
+</head>
+{% block content %}
+<body>
+    <h1>Esto es una prueba {{ dic.nombre }} {{ dic.apellido }}</h1>
+    <ul>
+        {% for key, value in dic.items %}
+        <li>{{ key }} : {{ value }}</li>
+        {% endfor %}
+    </ul>
+    <py-script>print("Hello world")</py-script>
+    <py-script>print(dic)</py-script>
+</body>
+{% endblock %}
+</html>
